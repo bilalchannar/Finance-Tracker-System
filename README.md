@@ -13,7 +13,6 @@
 10. `MonthlyTopExpensesBarChart` (implements `ReportInterface`)
 
 ## Attributes & Methods
-```
 - FinanceTracker
   - Attributes:
     - Inherits from JFrame
@@ -74,4 +73,18 @@
 - MonthlyTopExpensesBarChart (implements ReportInterface)
   - Methods:
     - generateReport(...)
-```
+
+## Relationships
+
+| Relationship Type | Description |
+| ----------------- | ----------- |
+| Inheritance | Income and Expense inherit from abstract class Transaction |
+| Interface Implementation | MonthlySpendingPieChart and MonthlyTopExpensesBarChart implement ReportInterface |
+| Association | Transaction is associated with Wallet (each transaction is linked to a wallet) |
+| | FinanceTracker uses Wallet and Transaction |
+| | FinanceTracker uses FilesManager
+| | FilesManager accesses (uses) DataContainer for persistence operations |
+| Aggregation | FinanceTracker aggregates (has) DataContainer |
+| Composition | DataContainer contains (composes) Wallet and Transaction (strong ownership) |
+
+## Class Diagram
