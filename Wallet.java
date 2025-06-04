@@ -8,7 +8,7 @@ public class Wallet implements Serializable {
     private double initialStartingBalance;
     private List<Transaction> transactions = new ArrayList<>();
 
-    // Constructor (optional)
+
     public Wallet(String title, double initialStartingBalance, double[] spendingLimits) {
         this.title = title;
         this.initialStartingBalance = initialStartingBalance;
@@ -29,6 +29,9 @@ public class Wallet implements Serializable {
         t.calculate();
         transactions.add(t);
     }
+     public List<Transaction> getTransactions() {
+        return transactions;
+    }
 
     public double getInitialStartingBalance() {
         return initialStartingBalance;
@@ -36,6 +39,9 @@ public class Wallet implements Serializable {
 
     public void setInitialStartingBalance(double balance) {
         this.initialStartingBalance = balance;
+    }
+    public String getTitle() {
+        return title;
     }
 
     // Optional: Getters for title, limits, or transaction list

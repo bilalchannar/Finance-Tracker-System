@@ -1,10 +1,11 @@
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 public class Expense extends Transaction {
 
-    public Expense(String itemName, Date transactionDate, double amount, Wallet wallet, String[] categories) {
+    public Expense(String itemName, LocalDateTime transactionDate, double amount, Wallet wallet, String[] categories) {
         super(itemName, transactionDate, amount, wallet, categories);
-        calculate(); // Optionally apply expense immediately
+        calculate(); 
     }
 
     @Override
@@ -16,4 +17,14 @@ public class Expense extends Transaction {
     public String getSummary() {
         return "EXPENSE - " + super.getSummary();
     }
+	public double getAmount() {
+		return amount;
+}
+public String[] getCategories() {
+		return categories;
+}
+public String getItemName() {
+		return itemName;
+
+}
 }

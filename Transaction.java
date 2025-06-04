@@ -1,14 +1,15 @@
-import java.util.*;
+
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 public abstract class Transaction implements Serializable {
     protected String itemName;
-    protected Date transactionDate;
+    protected LocalDateTime transactionDate;
     protected double amount;
-    protected String[] categories;
-    protected Wallet wallet;
+    protected String[] categories;//Why? To allow categorization of transactions
+    protected Wallet wallet;//Why? To associate the transaction with a specific wallet
 
-    public Transaction(String itemName, Date transactionDate, double amount, Wallet wallet, String[] categories) {
+    public Transaction(String itemName, LocalDateTime transactionDate, double amount, Wallet wallet, String[] categories) {
         this.itemName = itemName;
         this.transactionDate = transactionDate;
         this.amount = amount;
@@ -20,6 +21,9 @@ public abstract class Transaction implements Serializable {
     public String getSummary() {
         return itemName + ": " + amount + " on " + transactionDate;
 
+    }
+    public LocalDateTime getTransactionDate() {
+        return transactionDate;
     }
 
 }
