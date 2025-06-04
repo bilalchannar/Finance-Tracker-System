@@ -32,11 +32,11 @@ public class FilesManager {
     public static boolean saveDataToFile(DataContainer data, String filename) {
         File folder = new File(DATADIR);
 
-        if (!dir.exists()) {
-            dir.mkdirs();
+        if (!folder.exists()) {
+            folder.mkdirs();
         }
 
-        File file = new File(dir, filename);
+        File file = new File(folder, filename);
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
             oos.writeObject(data);
             return true;
