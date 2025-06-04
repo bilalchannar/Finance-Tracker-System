@@ -13,10 +13,12 @@
 10. `MonthlyTopExpensesBarChart` (implements `ReportInterface`)
 
 ## Attributes & Methods
+```
 - FinanceTracker
-  - Attributes: Inherits from JFrame
+  - Attributes:
+    - Inherits from JFrame
   - Methods:
-    - main(String[] args)
+    - void main(String[] args)
 
 - Wallet
   - Attributes:
@@ -26,3 +28,50 @@
   - Methods:
     - double getTotalSpent()
     - void addTransaction(Transaction t)
+
+- Transaction (abstract)
+  - Attributes:
+    - String itemName
+    - double valueAmount
+    - DateTime occuredOn
+    - String[] categories
+    - Wallet wallet
+  - Methods:
+    - abstract void calculate()
+    - String getSummary()
+
+- Income (extends Transaction)
+  - Methods:
+    - calculate(): Overrides
+
+- Expense (extends Transaction)
+  - Methods:
+    - calculate(): Overrides
+
+- FilesManager
+  - Methods (static):
+    - String[] listAvailableFiles()
+    - DataContainer loadDataFromFile(String filePath)
+    - boolean saveDataToFile(DataContainer data, String filePath)
+    - boolean fileExists(String filePath)
+
+- DataContainer (implements Serializable)
+  - Attributes:
+    - List<Wallet> wallets
+    - List<Transaction> transactions
+  - Methods:
+    - addWallet(Wallet w)
+    - addTransaction(Transaction t)
+
+- ReportInterface
+  - Methods:
+    - generateReport(List<Transaction> transactions, DateTime startDate, DateTime endDate)
+
+- MonthlySpendingPieChart (implements ReportInterface)
+  - Methods:
+    - generateReport(...)
+
+- MonthlyTopExpensesBarChart (implements ReportInterface)
+  - Methods:
+    - generateReport(...)
+```
