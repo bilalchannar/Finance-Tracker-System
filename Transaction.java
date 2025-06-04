@@ -1,7 +1,7 @@
-
 import java.util.*;
+import java.io.Serializable;
 
-public abstract class  Transaction{
+public abstract class  Transaction implements Serializable {
     protected String itemName;
     protected Date transactionDate;
     protected double amount;
