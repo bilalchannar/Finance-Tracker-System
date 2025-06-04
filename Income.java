@@ -8,6 +8,6 @@ public class Income extends Transaction {
 
 	@Override
 	public void calculate() {
-		
+		// my comment
 	}
 }
