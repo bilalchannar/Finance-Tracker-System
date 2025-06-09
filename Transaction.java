@@ -25,5 +25,11 @@ public abstract class Transaction implements Serializable {
     public LocalDateTime getTransactionDate() {
         return transactionDate;
     }
+    public double getAmount() {
+        return amount;
+    }
+    public String[] getCategories() {
+        return categories;
+    }
 
 }

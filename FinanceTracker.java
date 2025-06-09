@@ -22,7 +22,7 @@ public class FinanceTracker {
                 for (Wallet wallet : data.getWallets()) {
                     System.out.println("\nWallet: " + wallet.getTitle());
                     System.out.println("Balance: " + wallet.getInitialStartingBalance());
-                    System.out.println("Total Spent: " + wallet.getTotalSpend());
+                    System.out.println("Total Spent: " + wallet.getTotalExpense());
 
                     List<Transaction> transactions = wallet.getTransactions();
                     System.out.println("Transactions:");

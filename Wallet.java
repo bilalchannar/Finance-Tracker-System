@@ -7,7 +7,11 @@ public class Wallet implements Serializable {
     private double[] spendingLimits;
     private double initialStartingBalance;
     private List<Transaction> transactions = new ArrayList<>();
-
+    public Wallet() {
+        this.title = "Default Wallet";
+        this.initialStartingBalance = 0.0;
+        this.spendingLimits = new double[]{1000.0, 500.0}; // Default limits
+    }
 
     public Wallet(String title, double initialStartingBalance, double[] spendingLimits) {
         this.title = title;
@@ -15,7 +19,7 @@ public class Wallet implements Serializable {
         this.spendingLimits = spendingLimits;
     }
 
-    public double getTotalSpend() {
+    public double getTotalExpense() {
         double total = 0.0;
         for (Transaction t : transactions) {
             if (t instanceof Expense) {
@@ -23,6 +27,18 @@ public class Wallet implements Serializable {
             }
         }
         return total;
+    }
+    public double getTotalIncome() {
+        double total = 0.0;
+        for (Transaction t : transactions) {
+            if (t instanceof Income) {
+                total += t.amount;
+            }
+        }
+        return total;
+    }
+    public double getCurrentBalance() {
+        return initialStartingBalance + getTotalIncome() - getTotalExpense();
     }
 
     public void addTransaction(Transaction t) {
